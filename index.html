@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UyTop — Kvartiralar ijarasi</title>
+  <meta name="description" content="Toshkentda qulay va zamonaviy kvartiralar ijarasi">
+  <link rel="icon" type="img" href="./img/logo.png">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo"><span class="logo-mark">U</span>UyTop</a>
+    <nav class="nav-links">
+      <a href="#list">Kvartiralar</a>
+      <a href="#why">Afzalliklar</a>
+      <a href="#contact">Aloqa</a>
+    </nav>
+    <a href="tel:+998901234567" class="nav-cta">+998 90 123 45 67</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="hero-inner">
+      <span class="pill anim" style="--d:.1s">✨ Toshkent bo'ylab 6 ta tayyor kvartira</span>
+      <h1 class="anim" style="--d:.25s">O'zingizga mos <em>kvartirani</em><br>bugunoq toping</h1>
+      <p class="anim" style="--d:.4s">Barcha rasmlar, manzil, xonalar va narx — bir joyda. Ariza qoldiring, admin siz bilan tez orada bog'lanadi.</p>
+      <div class="hero-btns anim" style="--d:.55s">
+        <a href="#list" class="btn primary">Kvartiralarni ko'rish</a>
+        <a href="#contact" class="btn ghost">Admin bilan aloqa</a>
+      </div>
+      <div class="stats anim" style="--d:.7s">
+        <div><b data-count="6">0</b><span>Kvartira</span></div>
+        <div><b data-count="120">0</b><span>Mijozlar</span></div>
+        <div><b data-count="24">0</b><span>Soat ichida javob</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER -->
+  <section class="section" id="list">
+    <div class="head reveal">
+      <h2>Mavjud kvartiralar</h2>
+      <p>Kartani bosib barcha rasmlar va to'liq ma'lumotni ko'ring</p>
+    </div>
+
+    <div class="filters reveal">
+      <input type="search" id="q" placeholder="🔍 Manzil yoki nom bo'yicha qidirish...">
+      <select id="rooms">
+        <option value="all">Barcha xonalar</option>
+        <option value="1">1 xonali</option>
+        <option value="2">2 xonali</option>
+        <option value="3">3 xonali</option>
+        <option value="4">4+ xonali</option>
+      </select>
+      <select id="sort">
+        <option value="def">Saralash</option>
+        <option value="asc">Narx: arzonidan</option>
+        <option value="desc">Narx: qimmatidan</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Hech narsa topilmadi 😕</p>
+  </section>
+
+  <!-- WHY -->
+  <section class="section alt" id="why">
+    <div class="head reveal"><h2>Nega aynan UyTop?</h2></div>
+    <div class="why">
+      <div class="why-card reveal"><i>📸</i><h3>Haqiqiy rasmlar</h3><p>Har bir kvartiraning barcha xonalari rasmda ko'rsatilgan.</p></div>
+      <div class="why-card reveal"><i>🔐</i><h3>Ishonchli egalar</h3><p>Hamma e'lonlar admin tomonidan tekshirilgan.</p></div>
+      <div class="why-card reveal"><i>⚡</i><h3>Tez javob</h3><p>Ariza qoldiring — admin 24 soat ichida bog'lanadi.</p></div>
+      <div class="why-card reveal"><i>💰</i><h3>Shaffof narx</h3><p>Yashirin to'lovlarsiz, aniq oylik narx.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="contact reveal">
+      <div>
+        <h2>Admin bilan bog'laning</h2>
+        <p>Savollaringiz bormi? Qo'ng'iroq qiling yoki Telegramga yozing.</p>
+      </div>
+      <div class="contact-links">
+        <a href="tel:+998901234567">📞 +998 90 123 45 67</a>
+        <a href="https://t.me/uytop_admin" target="_blank" rel="noopener">✈️ @uytop_admin</a>
+        <a href="mailto:admin@uytop.uz">✉️ admin@uytop.uz</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 UyTop. Barcha huquqlar himoyalangan. <a href="#admin" id="adminLink">Arizalar (admin)</a>
+  </footer>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <button class="close" data-close aria-label="Yopish">✕</button>
+      <div class="m-gallery">
+        <div class="m-main">
+          <img id="mainImg" alt="">
+          <button class="arrow left" id="prev" aria-label="Oldingi">‹</button>
+          <button class="arrow right" id="next" aria-label="Keyingi">›</button>
+          <span class="counter" id="counter"></span>
+        </div>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+      <div class="m-info" id="mInfo"></div>
+    </div>
+  </div>
+
+  <!-- APPLY MODAL -->
+  <div class="modal" id="applyModal" aria-hidden="true">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box small" role="dialog" aria-modal="true">
+      <button class="close" data-close aria-label="Yopish">✕</button>
+      <div class="apply" id="applyBody"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="modal" id="adminModal" aria-hidden="true">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box small" role="dialog" aria-modal="true">
+      <button class="close" data-close aria-label="Yopish">✕</button>
+      <div class="apply">
+        <h3>📋 Kelgan arizalar</h3>
+        <div id="adminList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
